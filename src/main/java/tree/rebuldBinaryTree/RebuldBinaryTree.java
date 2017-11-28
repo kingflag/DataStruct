@@ -5,7 +5,7 @@ package tree.rebuldBinaryTree;
  * @Date:2017/11/27
  */
 
-//solution类，实现重建二叉树
+//RebuldBinaryTree类，实现重建二叉树
 public class RebuldBinaryTree {
     //主功能函数
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
