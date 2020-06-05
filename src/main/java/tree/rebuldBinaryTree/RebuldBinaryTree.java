@@ -1,13 +1,12 @@
 package tree.rebuldBinaryTree;
 
+
 /**
- * @author wangguoqi
+ * RebuldBinaryTree类，实现重建二叉树
+ * * @author kingflag
+ *
  * @Date:2017/11/27
  */
-
-
-
-//RebuldBinaryTree类，实现重建二叉树
 public class RebuldBinaryTree {
     //主功能函数
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
@@ -18,7 +17,17 @@ public class RebuldBinaryTree {
         return mm;
     }
 
-    //核心递归
+    /**
+     * 核心递归
+     *
+     * @param pre
+     * @param in
+     * @param preStart
+     * @param preEnd
+     * @param inStart
+     * @param inEnd
+     * @return
+     */
     public static TreeNode reConstructBinaryTreeCore(int[] pre, int[] in, int preStart, int preEnd, int inStart, int inEnd) {
         TreeNode tree = new TreeNode(pre[preStart]);
         tree.left = null;
@@ -43,7 +52,11 @@ public class RebuldBinaryTree {
         return tree;
     }
 
-    //将二叉树先序遍历，用于测试结果
+    /**
+     * 将二叉树先序遍历，用于测试结果
+     *
+     * @param node
+     */
     public static void preTraverseBinTree(TreeNode node) {
         if (node == null) {
             return;
@@ -57,7 +70,11 @@ public class RebuldBinaryTree {
         }
     }
 
-    //将二叉树中序遍历，用于测试结果
+    /**
+     * 将二叉树中序遍历，用于测试结果
+     *
+     * @param node
+     */
     public static void inTraverseBinTree(TreeNode node) {
         if (node == null) {
             return;
@@ -71,7 +88,11 @@ public class RebuldBinaryTree {
         }
     }
 
-    //将二叉树后序遍历，用于测试结果
+    /**
+     * 将二叉树后序遍历，用于测试结果
+     *
+     * @param node
+     */
     public static void postTraverseBinTree(TreeNode node) {
         if (node == null) {
             return;
@@ -86,16 +107,20 @@ public class RebuldBinaryTree {
     }
 
 
-        /**
-         * 思路是这样的, pre[]第一个元素1就是根节点啦 遍历in[]找到1，那么1前面的元素(4,7,2)都是
-         * 根节点的左子树，1后面的元素(5,3,8,6)都是根节点的右子树 当然我们可以得知根节点的左子树的节点数为3，右子树的节点数为4，
-         * 那么回到pre[]，我们知道1后面的3个元素（2,4,7）是根节点左子树的先序遍历
-         * 同样的回到in[]，1前面的3个元素（4,7,2）是根节点左子树的中序遍历
-         * 这样的话，我们最终得到了左子树的先序遍历和中序遍历，由此可以再次得到该左子树的根节点是谁。
-         * 这样相当于本题的规模变小了，有了递归的性质，显然递归可以得到结果
-         */
+    /**
+     * 思路是这样的, pre[]第一个元素1就是根节点啦 遍历in[]找到1，那么1前面的元素(4,7,2)都是
+     * 根节点的左子树，1后面的元素(5,3,8,6)都是根节点的右子树 当然我们可以得知根节点的左子树的节点数为3，右子树的节点数为4，
+     * 那么回到pre[]，我们知道1后面的3个元素（2,4,7）是根节点左子树的先序遍历
+     * 同样的回到in[]，1前面的3个元素（4,7,2）是根节点左子树的中序遍历
+     * 这样的话，我们最终得到了左子树的先序遍历和中序遍历，由此可以再次得到该左子树的根节点是谁。
+     * 这样相当于本题的规模变小了，有了递归的性质，显然递归可以得到结果
+     */
 
-    //主函数，用于测试结果
+    /**
+     * 主函数，用于测试结果
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         int pre[] = {1, 2, 4, 7, 3, 5, 8, 9, 6};
         int in[] = {4, 7, 2, 1, 8, 5, 9, 3, 6};
