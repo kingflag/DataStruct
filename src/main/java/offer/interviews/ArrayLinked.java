@@ -52,7 +52,6 @@ public class ArrayLinked {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        System.out.println(JSONObject.toJSONString(node1));
         List list = printListFromTailToHead(node1);
         System.out.println(Arrays.asList(list));
     }
