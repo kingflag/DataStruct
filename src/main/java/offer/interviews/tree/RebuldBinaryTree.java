@@ -8,6 +8,37 @@ package offer.interviews.tree;
  * @Date:2017/11/27
  */
 public class RebuldBinaryTree {
+
+    /**
+     * 使用数组拷贝的方法
+     *
+     * @param pre 先根遍历
+     * @param in  中序遍历
+     * @return
+     */
+    public static TreeNode reConstructBinaryTree1(int[] pre, int[] in) {
+        if (pre.length == 0 || in.length == 0) {
+            return null;
+        }
+        TreeNode treeNode = new TreeNode(pre[0]);
+        for (int i = 0; i < in.length; i++) {
+            if (in[i] == pre[0]) {
+                int[] leftPre = new int[i];
+                int[] leftIn = new int[i];
+                System.arraycopy(pre, 1, leftPre, 0, i);
+                System.arraycopy(in, 0, leftIn, 0, i);
+                treeNode.left = reConstructBinaryTree(leftPre, leftIn);
+                int[] rightPre = new int[pre.length - i - 1];
+                int[] rightIn = new int[in.length - i - 1];
+                System.arraycopy(pre, i + 1, rightPre, 0, pre.length - i - 1);
+                System.arraycopy(in, i + 1, rightIn, 0, in.length - i - 1);
+                treeNode.right = reConstructBinaryTree(rightPre, rightIn);
+                break;
+            }
+        }
+        return treeNode;
+    }
+
     //主功能函数
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         if (pre == null || in == null) {
