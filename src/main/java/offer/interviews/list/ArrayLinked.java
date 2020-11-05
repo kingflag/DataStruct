@@ -1,4 +1,4 @@
-package offer.interviews;
+package offer.interviews.list;
 
 import com.alibaba.fastjson.JSONObject;
 

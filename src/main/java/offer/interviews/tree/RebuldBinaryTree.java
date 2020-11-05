@@ -1,4 +1,4 @@
-package tree.rebuldBinaryTree;
+package offer.interviews.tree;
 
 
 /**
