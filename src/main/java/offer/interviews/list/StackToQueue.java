@@ -16,6 +16,10 @@ public class StackToQueue {
         stack1.push(node);
     }
 
+    /**
+     * 取出时从stack1中压入到stack2，然后再从stack2中pop
+     * @return
+     */
     public static int pop() {
         if (stack2.isEmpty()) {
             while (!stack1.isEmpty()) {
@@ -35,6 +39,31 @@ public class StackToQueue {
         for (int i = 0; i < 100; i++) {
             System.out.println(pop());
         }
+        System.out.println("===================");
+        for (int i = 0; i < 100; i++) {
+            newPush(i);
+        }
+        for (int i = 0; i < 100; i++) {
+            System.out.println(pop());
+        }
 
+    }
+
+    /**
+     * 每次push时检查stack2中是否有值，如果有值，先讲数据pop出，然后push到stack1中，然后将stack1中的数据pop出，push到stack2中，取出时从stack2中pop
+     * @param node
+     */
+    public static void newPush(int node) {
+        while (!stack2.isEmpty()){
+            stack1.push(stack2.pop());
+        }
+        stack1.push(node);
+        while (!stack1.isEmpty()){
+            stack2.push(stack1.pop());
+        }
+    }
+
+    public static int newPop() {
+        return stack2.pop();
     }
 }
