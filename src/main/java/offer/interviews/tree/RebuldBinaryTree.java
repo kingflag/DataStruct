@@ -1,6 +1,8 @@
 package offer.interviews.tree;
 
 
+import java.util.List;
+
 /**
  * RebuldBinaryTree类，实现重建二叉树
  * * @author kingflag
@@ -165,5 +167,8 @@ public class RebuldBinaryTree {
         System.out.print("后序遍历结果:  {");
         postTraverseBinTree(tree);
         System.out.println("}");
+
+        List list = TreeLevelOrder.levelOrder(tree);
+        System.out.println(list);
     }
 }
